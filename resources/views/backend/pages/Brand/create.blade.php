@@ -45,7 +45,7 @@
 
 									<div class="form-group">
 					        			<label>Status</label>
-					        			<select class="form-control" name="is_featured">
+					        			<select class="form-control" name="status">
 					        				<option value="0">Please Select the status</option>
 					        				<option value="1">Active</option>
 					        				<option value="0">Inactive</option>

@@ -39,24 +39,45 @@
 							    </tr>
 							  </thead>
 							  <tbody>
-
-							    <tr>
-							      <th scope="row">1</th>
-							      <td>Mark</td>
-							      <td>Mark</td>
-							      <td>Otto</td>
-							      <td>mdo</td>
-							      <td>mdo</td>
-							      <td>mdo</td>
-							      <td>
-							      	<div class="action-btn">
-							      		<ul>
-							      			<li><a href=""><i class="fa fa-edit"></i></a></li>
-							      			<li><a href=""><i class="fa fa-trash"></i></a></li>
-							      		</ul>
-							      	</div>
-							      </td>
-							    </tr>
+							  	@php $i = 1 @endphp
+								@foreach ($brands as $brand)
+								    <tr>
+								      <th scope="row">{{ $i }}</th>
+								      <td>
+								      	@if ( !is_null($brand->image))
+								      		<img src="{{ asset('Backend/img/brand') }}/{{ $brand->image }}" width="40">
+								      	@else
+								      		No Thumbnail
+								      	@endif
+								      </td>
+								      <td>{{ $brand->name }}</td>
+								      <td>{{ $brand->slug }}</td>
+								      <td>{{ $brand->description }}</td>
+								      <td>
+								      	@if ($brand->is_featured == 1)
+								      		<span class="badge badge-success">Yes</span>
+								      	@else
+								      		<span class="badge badge-warning">No</span>
+								      	@endif
+								      </td>
+								      <td>
+								      	@if ($brand->status == 1)
+								      		<span class="badge badge-success">Active</span>
+								      	@else
+								      		<span class="badge badge-danger">Inactive</span>
+								      	@endif
+								      </td>
+								      <td>
+								      	<div class="action-btn">
+								      		<ul>
+								      			<li><a href=""><i class="fa fa-edit"></i></a></li>
+								      			<li><a href=""><i class="fa fa-trash"></i></a></li>
+								      		</ul>
+								      	</div>
+								      </td>
+								    </tr>
+								  	@php $i++ @endphp
+								 @endforeach
 
 							  </tbody>
 							</table>

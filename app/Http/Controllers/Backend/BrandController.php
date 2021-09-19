@@ -18,7 +18,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.brand.manage');
+        $brands = Brand::orderBy('name', 'asc')->get();
+        return view('backend.pages.brand.manage', compact('brands'));
     }
 
     /**
@@ -39,7 +40,33 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max: 255',
+        ],
+        [
+            'name.required' => 'Please Insert the Brand Name',
+        ]);
+
+        $brand = new Brand();
+        $brand->name        = $request->name;
+        $brand->slug        = Str::slug($request->name);
+        $brand->description = $request->description;
+        $brand->is_featured = $request->is_featured;
+        $brand->status      = $request->status;
+
+        if ( $request->image )
+        {
+            $image = $request->file('image');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('Backend/img/brand/' . $img);
+            Image::make($image)->save($location);
+            $brand->image = $img;
+        }
+
+        $brand->save();
+
+        return redirect()->route('brand.manage');
+
     }
 
     /**
