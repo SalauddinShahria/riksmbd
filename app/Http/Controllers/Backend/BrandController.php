@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Backend\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Image;
+use File;
 
 class BrandController extends Controller
 {
@@ -15,7 +18,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.pages.brand.manage');
     }
 
     /**
@@ -25,7 +28,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.brand.create');
     }
 
     /**

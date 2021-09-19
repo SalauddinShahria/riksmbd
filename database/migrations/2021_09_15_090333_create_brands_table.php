@@ -20,6 +20,7 @@ class CreateBrandsTable extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->integer('is_featured')->default(0)->comment('0 is Normal, 1 is Featured');
+            $table->integer('status')->default(0)->comment('0 is Inactive, 1 is Active');
             $table->timestamps();
         });
     }

@@ -1,4 +1,5 @@
-<script src="{{ asset('Backend/lib/jquery/jquery.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="{{ asset('Backend/lib/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('Backend/lib/jquery-ui/ui/widgets/datepicker.js') }}"></script>
     <script src="{{ asset('Backend/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('Backend/lib/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
@@ -20,6 +21,23 @@
     <script src="{{ asset('Backend/js/map.shiftworker.js') }}"></script>
     <script src="{{ asset('Backend/js/ResizeSensor.js') }}"></script>
     <script src="{{ asset('Backend/js/dashboard.js') }}"></script>
+
+    <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+          $('#managetble').DataTable({
+            responsive: true,
+            language: {
+              searchPlaceholder: 'Search...',
+              sSearch: '',
+              lengthMenu: '_MENU_ items/page',
+            }
+          });
+      } );
+    </script>
+
     <script>
       $(function(){
         'use strict'

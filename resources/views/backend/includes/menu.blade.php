@@ -17,8 +17,8 @@
             <span class="menu-item-label">Brands</span>
           </a><!-- br-menu-link -->
           <ul class="br-menu-sub">
-            <li class="sub-item"><a href="card-social.html" class="sub-link">Manage All Brands</a></li>
-            <li class="sub-item"><a href="card-listing.html" class="sub-link">Add New Brand</a></li>
+            <li class="sub-item"><a href="{{ route('brand.create') }}" class="sub-link">Add New Brand</a></li>
+            <li class="sub-item"><a href="{{ route('brand.manage') }}" class="sub-link">Manage All Brands</a></li>
           </ul>
         </li>
 

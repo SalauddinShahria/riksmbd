@@ -30,12 +30,13 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/dashboard', 'App\Http\Controllers\Backend\PagesController@index')->name('dashboard');
 
     // Brand Route
-    Route::group(['prefix' => 'brand'], function ()){
+    Route::group(['prefix' => 'brand'], function (){
         Route::get('/manage', 'App\Http\Controllers\Backend\BrandController@index')->name('brand.manage');
         Route::get('/create', 'App\Http\Controllers\Backend\BrandController@create')->name('brand.create');
         Route::post('/store', 'App\Http\Controllers\Backend\BrandController@store')->name('brand.store');
         Route::get('/edit/{id}', 'App\Http\Controllers\Backend\BrandController@edit')->name('brand.edit');
         Route::post('/edit/{id}', 'App\Http\Controllers\Backend\BrandController@update')->name('brand.update');
         Route::post('/delete/{id}', 'App\Http\Controllers\Backend\BrandController@destroy')->name('brand.destroy');
-    }
+    });
+    
 });

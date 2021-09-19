@@ -25,7 +25,6 @@
 
       @yield('body')
 
-      </div><!-- br-pagebody -->
 
       @include('backend.includes.footer')
     </div><!-- br-mainpanel -->
