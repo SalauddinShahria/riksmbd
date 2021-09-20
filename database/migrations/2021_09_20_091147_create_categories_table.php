@@ -14,7 +14,13 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('name');
+            $table->string('slug');
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('is_parent')->default(0)->comment('0 for Parent, 1 for Chaild');
+            $table->integer('status')->default(0)->comment('0 for Inactive, 1 for Active');
             $table->timestamps();
         });
     }
