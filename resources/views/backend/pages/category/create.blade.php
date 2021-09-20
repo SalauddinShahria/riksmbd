@@ -5,8 +5,8 @@
   	<div class="br-pagetitle">
     	<i class="icon ion-ios-home-outline"></i>
     	<div>
-      		<h4>Update Brand Information</h4>
-      		<p class="mg-b-0">riksmbd edit brand here.</p>
+      		<h4>Create New Brand</h4>
+      		<p class="mg-b-0">riksmbd add new brand here.</p>
     	</div>
   	</div>
 
@@ -18,12 +18,12 @@
 		      	<div class="card bd-0 shadow-base">
 		          	<div class="d-md-flex justify-content-between pd-25">
 			            <div>
-			              <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Update Brand Information</h6>
+			              <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Create New Brand</h6>
 			            </div>
 		            </div>
 
 			        <div class="pd-l-25 pd-r-15 pd-b-25">
-			        	<form action="{{ route('brand.edit', $brand->id) }}" method="POST" enctype="multipart/form-data">
+			        	<form action="{{ route('brand.store') }}" method="POST" enctype="multipart/form-data">
 			        		@csrf
 
 			        		<div class="row">
@@ -31,15 +31,15 @@
 
 			        				<div class="form-group">
 					        			<label>Brand Name</label>
-					        			<input type="text" name="name" class="form-control" value="{{ $brand->name }}">
+					        			<input type="text" name="name" class="form-control">
 					        		</div>
 
 					        		<div class="form-group">
 					        			<label>Is Featured</label>
 					        			<select class="form-control" name="is_featured">
 					        				<option value="0">Please Select the featured status</option>
-					        				<option value="1" @if($brand->is_featured == 1) selected @endif >Yes Featured</option>
-					        				<option value="0" @if($brand->is_featured == 0) selected @endif >Not Featured</option>
+					        				<option value="1">Yes Featured</option>
+					        				<option value="0">Not Featured</option>
 					        			</select>
 					        		</div>
 
@@ -47,8 +47,8 @@
 					        			<label>Status</label>
 					        			<select class="form-control" name="status">
 					        				<option value="0">Please Select the status</option>
-					        				<option value="1" @if($brand->status == 1) selected @endif>Active</option>
-					        				<option value="0" @if($brand->status == 0) selected @endif>Inactive</option>
+					        				<option value="1">Active</option>
+					        				<option value="0">Inactive</option>
 					        			</select>
 					        		</div>
 
@@ -58,16 +58,11 @@
 
 			        				<div class="form-group">
 					        			<label>Brand Description</label>
-					        			<textarea class="form-control" name="description" rows="5">{{ $brand->description }}</textarea>
+					        			<textarea class="form-control" name="description" rows="5"></textarea>
 					        		</div>
 
 					        		<div class="form-group">
-					        			<label>Brand Image / Logo</label> <br>
-					        			@if ( !is_null($brand->image))
-								      		<img src="{{ asset('Backend/img/brand') }}/{{ $brand->image }}" width="40">
-								      	@else
-								      		No Thumbnail
-								      	@endif <br><br>
+					        			<label>Brand Image / Logo</label>
 					        			<input type="file" name="image" class="form-control-file">
 					        		</div>
 
@@ -76,7 +71,7 @@
 			        		</div>
 
 			        		<div class="form-group">
-			        			<input type="submit" name="updateBrand" class="btn btn-primary" value="Save Changes">
+			        			<input type="submit" name="addBrand" class="btn btn-primary" value="Add Brand">
 			        		</div>
 
 			        	</form>

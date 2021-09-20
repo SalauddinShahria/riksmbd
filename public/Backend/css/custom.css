@@ -2,16 +2,16 @@
 	width: 70px;
 }
 
-.action-btn, .modal-btn{
+.action-btn{
 	text-align: center;
 }
 
-.action-btn ul, .modal-btn ul{
+.action-btn ul{
 	margin: 0;
 	padding: 0;
 }
 
-.action-btn ul li, .modal-btn ul li{
+.action-btn ul li{
 	list-style: none;
 	display: inline;
 	margin: 0 7px;
