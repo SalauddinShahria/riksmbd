@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('slug');
             $table->text('description')->nullable();
             $table->string('image')->nullable();
-            $table->integer('is_parent')->default(0)->comment('0 for Parent, 1 for Chaild');
+            $table->integer('is_parent')->default(0)->comment('0 for Parent, Any value for Child');
             $table->integer('status')->default(0)->comment('0 for Inactive, 1 for Active');
             $table->timestamps();
         });

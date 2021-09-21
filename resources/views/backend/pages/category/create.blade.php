@@ -37,9 +37,13 @@
 					        		<div class="form-group">
 					        			<label>Category | Sub-Category</label>
 					        			<select class="form-control" name="is_parent">
-					        				<option value="0">Please Select the Category</option>
-					        				<option value="1">Primary Category</option>
-					        				<option value="0">Sub-Category</option>
+					        				<option value="0">Please Select the Parent Category if any</option>
+					        				@foreach(App\Models\Backend\Category::orderBy('name', 'asc')->where('is_parent', 0)->get() as $parentcat)
+					        					<option value="{{ $parentcat->id }}">{{ $parentcat->name }}</option>
+					        					@foreach(App\Models\Backend\Category::orderBy('name', 'asc')->where('is_parent', $parentcat->id)->get() as $childcat)
+					        					<option value="{{ $childcat->id }}"> - {{ $childcat->name }}</option>
+					        					@endforeach
+					        				@endforeach
 					        			</select>
 					        		</div>
 

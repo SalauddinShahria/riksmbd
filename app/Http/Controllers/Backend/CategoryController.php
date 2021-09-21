@@ -87,7 +87,16 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $primary_category = Category::orderBy('name', 'asc')->where('is_parent', 0)->get();
+        $category = Category::find($id);
+
+        if( !is_null($category) )
+        {
+            return view('backend.pages.category.edit', compact('category', 'primary_category'));
+        }
+        else{
+            return redirect()->route('category.manage');
+        }
     }
 
     /**
@@ -99,7 +108,37 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|max: 255',
+        ],
+        [
+            'name.required' => 'Please Insert the Category Name',
+        ]);
+
+        $category = Category::find($id);
+        $category->name         = $request->name;
+        $category->slug         = Str::slug($request->name);
+        $category->description  = $request->description;
+        $category->is_parent    = $request->is_parent;
+        $category->status       = $request->status;
+
+        if ( $request->image )
+        {
+            // Delete if there is any existing image
+            if ( File::exists( 'Backend/img/category/' . $category->image)) {
+                File::delete('Backend/img/category/' . $category->image);
+            }
+
+            $image = $request->file('image');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('Backend/img/category/' . $img);
+            Image::make($image)->save($location);
+            $category->image = $img;
+        }
+
+        $category->save();
+
+        return redirect()->route('category.manage');
     }
 
     /**
@@ -110,6 +149,21 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+
+        if( !is_null($category) ) 
+        {
+            // Delete if there is any existing image
+            if ( File::exists( 'Backend/img/category/' . $category->image)) {
+                File::delete('Backend/img/category/' . $category->image);
+            }
+
+            $category->delete();
+            return redirect()->route('category.manage');
+        }
+        else
+        {
+            return redirect()->route('category.manage');
+        }
     }
 }
