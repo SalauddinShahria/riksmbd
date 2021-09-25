@@ -38,10 +38,15 @@
 					        			<label>Category | Sub-Category</label>
 					        			<select class="form-control" name="is_parent">
 					        				<option value="0">Please Select the Parent Category if any</option>
+
 					        				@foreach(App\Models\Backend\Category::orderBy('name', 'asc')->where('is_parent', 0)->get() as $parentcat)
-					        					<option value="{{ $parentcat->id }}">{{ $parentcat->name }}</option>
+
+					        					<option value="{{ $parentcat->id }}" @if ($parentcat->is_parent == 0 && $category->id == $parentcat->id) selected @endif>{{ $parentcat->name }}</option>
+
 					        					@foreach(App\Models\Backend\Category::orderBy('name', 'asc')->where('is_parent', $parentcat->id)->get() as $childcat)
-					        					<option value="{{ $childcat->id }}"> - {{ $childcat->name }}</option>
+
+					        					<option value="{{ $childcat->id }}" @if ($category->id == $childcat->id) selected @endif> - {{ $childcat->name }}</option>
+
 					        					@endforeach
 					        				@endforeach
 					        			</select>

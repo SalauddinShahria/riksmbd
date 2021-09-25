@@ -43,7 +43,7 @@
 								@foreach ($categories as $category)
 								    @if($category->is_parent == 0)
 								    <tr>
-								      <th scope="row">{{ $i }}</th>
+								      <th scope="row">{{ $i++ }}</th>
 								      <td>
 								      	@if ( !is_null($category->image))
 								      		<img src="{{ asset('Backend/img/category') }}/{{ $category->image }}" width="40">
@@ -109,7 +109,7 @@
 								    @foreach(App\Models\Backend\Category::orderBy('name', 'asc')->where('is_parent', $category->id)->get() as $subcat)
 								    	<!-- Sub Category item Start -->
 								    	<tr>
-									      <th scope="row">{{ $i }}</th>
+									      <th scope="row">{{ $i++ }}</th>
 									      <td>
 									      	@if ( !is_null($subcat->image))
 									      		<img src="{{ asset('Backend/img/category') }}/{{ $subcat->image }}" width="40">
@@ -172,7 +172,6 @@
 
 								    @endif
 
-								  @php $i++ @endphp
 								 @endforeach
 
 							  </tbody>
