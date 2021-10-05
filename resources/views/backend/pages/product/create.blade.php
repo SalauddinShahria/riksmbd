@@ -103,8 +103,8 @@
 						        			<label>Product Type/Condition</label>
 						        			<select class="form-control" name="product_type">
 						        				<option value="0">Please Select the Product Type/Condition</option>
-						        				<option value="1">New</option>
-						        				<option value="0">Pre-Owned</option>
+						        				<option value="0">New</option>
+						        				<option value="1">Pre-Owned</option>
 						        			</select>
 						        		</div>
 
