@@ -1,40 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\Division;
+use App\Models\Backend\District;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Image;
+use File;
 
-class PagesController extends Controller
+class DivisionController extends Controller
 {
     /**
-     * Display The Home page.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('frontend.pages.home');
-    }
+        $divisions = Division::orderBy('priority', 'asc')->get();
 
-    public function products()
-    {
-        return view('frontend.pages.products.products');
-    }
-
-    public function details()
-    {
-        return view('frontend.pages.products.details');
-    }
-
-    public function login()
-    {
-        return view('frontend.pages.login');
-    }
-
-    public function registration()
-    {
-        return view('frontend.pages.registration');
+        return view('backend.pages.division.manage', compact('divisions'));
     }
 
     /**
@@ -44,7 +31,7 @@ class PagesController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.division.create');
     }
 
     /**
@@ -55,7 +42,13 @@ class PagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $division = new Division();
+       $division->name = $request->name;
+       $division->priority = $request->priority;
+
+       $division->save();
+
+       return redirect()->route('division.manage');
     }
 
     /**
@@ -77,7 +70,15 @@ class PagesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $division = Division::find($id);
+
+        if(!is_null($division))
+        {
+            return view('backend.pages.division.edit', compact('division'));
+        }
+        else{
+            return back();
+        }
     }
 
     /**
@@ -89,7 +90,13 @@ class PagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $division = Division::find($id);
+        $division->name = $request->name;
+        $division->priority = $request->priority;
+
+       $division->save();
+
+       return redirect()->route('division.manage');
     }
 
     /**

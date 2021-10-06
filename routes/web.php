@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\Frontend\PagesController@index')->name('homepage');
 Route::get('/products', 'App\Http\Controllers\Frontend\PagesController@products')->name('allProducts');
 Route::get('/products/details', 'App\Http\Controllers\Frontend\PagesController@details')->name('details');
+Route::get('/login', 'App\Http\Controllers\Frontend\PagesController@login')->name('login');
+Route::get('/registration', 'App\Http\Controllers\Frontend\PagesController@registration')->name('registration');
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +61,26 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('/edit/{id}', 'App\Http\Controllers\Backend\ProductController@edit')->name('product.edit');
         Route::post('/edit/{id}', 'App\Http\Controllers\Backend\ProductController@update')->name('product.update');
         Route::post('/delete/{id}', 'App\Http\Controllers\Backend\ProductController@destroy')->name('product.destroy');
+    });
+
+    // Division Route
+    Route::group(['prefix' => 'division'], function (){
+        Route::get('/manage', 'App\Http\Controllers\Backend\DivisionController@index')->name('division.manage');
+        Route::get('/create', 'App\Http\Controllers\Backend\DivisionController@create')->name('division.create');
+        Route::post('/store', 'App\Http\Controllers\Backend\DivisionController@store')->name('division.store');
+        Route::get('/edit/{id}', 'App\Http\Controllers\Backend\DivisionController@edit')->name('division.edit');
+        Route::post('/edit/{id}', 'App\Http\Controllers\Backend\DivisionController@update')->name('division.update');
+        Route::post('/delete/{id}', 'App\Http\Controllers\Backend\DivisionController@destroy')->name('division.destroy');
+    });
+
+    // District Route
+    Route::group(['prefix' => 'district'], function (){
+        Route::get('/manage', 'App\Http\Controllers\Backend\DistrictController@index')->name('district.manage');
+        Route::get('/create', 'App\Http\Controllers\Backend\DistrictController@create')->name('district.create');
+        Route::post('/store', 'App\Http\Controllers\Backend\DistrictController@store')->name('district.store');
+        Route::get('/edit/{id}', 'App\Http\Controllers\Backend\DistrictController@edit')->name('district.edit');
+        Route::post('/edit/{id}', 'App\Http\Controllers\Backend\DistrictController@update')->name('district.update');
+        Route::post('/delete/{id}', 'App\Http\Controllers\Backend\DistrictController@destroy')->name('district.destroy');
     });
     
 });

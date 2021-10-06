@@ -23,7 +23,7 @@
 		            </div>
 
 			        <div class="pd-l-25 pd-r-15 pd-b-25">
-			        	<form action="{{ route('category.edit', $category->id) }}" method="POST" enctype="multipart/form-data">
+			        	<form action="{{ route('category.update', $category->id) }}" method="POST" enctype="multipart/form-data">
 			        		@csrf
 
 			        		<div class="row">

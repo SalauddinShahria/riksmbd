@@ -1,40 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\Division;
+use App\Models\Backend\District;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Image;
+use File;
 
-class PagesController extends Controller
+
+class DistrictController extends Controller
 {
     /**
-     * Display The Home page.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('frontend.pages.home');
-    }
-
-    public function products()
-    {
-        return view('frontend.pages.products.products');
-    }
-
-    public function details()
-    {
-        return view('frontend.pages.products.details');
-    }
-
-    public function login()
-    {
-        return view('frontend.pages.login');
-    }
-
-    public function registration()
-    {
-        return view('frontend.pages.registration');
+        //
     }
 
     /**

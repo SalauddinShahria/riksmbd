@@ -11,6 +11,7 @@
         </li><!-- br-menu-item -->
 
       <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">E-commerce Functionality</label>
+        
         <li class="br-menu-item">
           <a href="#" class="br-menu-link with-sub">
             <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
@@ -43,6 +44,31 @@
             <li class="sub-item"><a href="{{ route('product.manage') }}" class="sub-link">Manage All Product</a></li>
           </ul>
         </li>
+
+        <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">Location / Area Manager</label>
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+            <span class="menu-item-label">Division</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="{{ route('division.create') }}" class="sub-link">Add New Division</a></li>
+            <li class="sub-item"><a href="{{ route('division.manage') }}" class="sub-link">Manage All Division</a></li>
+          </ul>
+        </li>
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+            <span class="menu-item-label">District</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="{{ route('district.create') }}" class="sub-link">Add New District</a></li>
+            <li class="sub-item"><a href="{{ route('district.manage') }}" class="sub-link">Manage All District</a></li>
+          </ul>
+        </li>
+
 
       </ul><!-- br-sideleft-menu -->
 
