@@ -107,6 +107,17 @@ class DivisionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $division = Division::find($id);
+
+        if(!is_null($division))
+        {
+            $districts = District::where('division_id', $division->id)->get();
+            foreach ($districts as $district) {
+                $district->delete();
+            }
+            $division->delete();
+        }
+
+        return redirect()->route('division.manage');
     }
 }

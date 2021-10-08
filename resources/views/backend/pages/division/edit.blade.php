@@ -5,7 +5,7 @@
   	<div class="br-pagetitle">
     	<i class="icon ion-ios-home-outline"></i>
     	<div>
-      		<h4>Create New Division</h4>
+      		<h4>Update Division</h4>
       		<p class="mg-b-0">riksmbd Division here.</p>
     	</div>
   	</div>
@@ -18,7 +18,7 @@
 		      	<div class="card bd-0 shadow-base">
 		          	<div class="d-md-flex justify-content-between pd-25">
 			            <div>
-			              <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Create New Division</h6>
+			              <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Update Division</h6>
 			            </div>
 		            </div>
 
@@ -47,7 +47,7 @@
 			        		</div>
 
 			        		<div class="form-group">
-			        			<input type="submit" name="addDivision" class="btn btn-primary" value="Add Division">
+			        			<input type="submit" name="updateDivision" class="btn btn-primary" value="Save Changes">
 			        		</div>
 
 			        	</form>

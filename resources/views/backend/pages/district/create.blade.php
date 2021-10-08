@@ -5,8 +5,8 @@
   	<div class="br-pagetitle">
     	<i class="icon ion-ios-home-outline"></i>
     	<div>
-      		<h4>Create New Brand</h4>
-      		<p class="mg-b-0">riksmbd add new brand here.</p>
+      		<h4>Create New District</h4>
+      		<p class="mg-b-0">riksmbd District here.</p>
     	</div>
   	</div>
 
@@ -18,60 +18,41 @@
 		      	<div class="card bd-0 shadow-base">
 		          	<div class="d-md-flex justify-content-between pd-25">
 			            <div>
-			              <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Create New Brand</h6>
+			              <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Create New District</h6>
 			            </div>
 		            </div>
 
 			        <div class="pd-l-25 pd-r-15 pd-b-25">
-			        	<form action="{{ route('brand.store') }}" method="POST" enctype="multipart/form-data">
+			        	<form action="{{ route('district.store') }}" method="POST" enctype="multipart/form-data">
 			        		@csrf
 
 			        		<div class="row">
 			        			<div class="col-sm-6 col-xl-6">
 
 			        				<div class="form-group">
-					        			<label>Brand Name</label>
-					        			<input type="text" name="name" class="form-control">
-					        		</div>
-
-					        		<div class="form-group">
-					        			<label>Is Featured</label>
-					        			<select class="form-control" name="is_featured">
-					        				<option value="0">Please Select the featured status</option>
-					        				<option value="1">Yes Featured</option>
-					        				<option value="0">Not Featured</option>
-					        			</select>
-					        		</div>
-
-									<div class="form-group">
-					        			<label>Status</label>
-					        			<select class="form-control" name="status">
-					        				<option value="0">Please Select the status</option>
-					        				<option value="1">Active</option>
-					        				<option value="0">Inactive</option>
-					        			</select>
+					        			<label>District Name</label>
+					        			<input type="text" name="name" class="form-control" autocomplete="off" required="required">
 					        		</div>
 
 			        			</div>
 
 			        			<div class="col-sm-6 col-xl-6">
 
-			        				<div class="form-group">
-					        			<label>Brand Description</label>
-					        			<textarea class="form-control" name="description" rows="5"></textarea>
-					        		</div>
-
 					        		<div class="form-group">
-					        			<label>Brand Image / Logo</label>
-					        			<input type="file" name="image" class="form-control-file">
+					        			<label>Division Name</label>
+					        			<select class="form-control" name="division_id">
+					        				<option value="0">Please Select the Division Name</option>
+					        				@foreach ($divisions as $division)
+					        					<option value="{{ $division->id }}">{{ $division->name }}</option>
+					        				@endforeach
+					        			</select>
 					        		</div>
-
 			        			</div>
 
 			        		</div>
 
 			        		<div class="form-group">
-			        			<input type="submit" name="addBrand" class="btn btn-primary" value="Add Brand">
+			        			<input type="submit" name="aaDistrict" class="btn btn-primary" value="Add District">
 			        		</div>
 
 			        	</form>
