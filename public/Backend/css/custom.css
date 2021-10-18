@@ -1,0 +1,30 @@
+.pagination .page-item .page-link {
+	width: 70px;
+}
+
+.action-btn{
+	text-align: center;
+}
+
+.action-btn-di{
+	text-align: left;
+}
+
+.action-btn ul, .action-btn-di ul{
+	margin: 0;
+	padding: 0;
+}
+
+.action-btn ul li, .action-btn-di ul li{
+	list-style: none;
+	display: inline;
+	margin: 0 7px;
+}
+
+.action-btn ul li .fa-edit, .action-btn-di ul li .fa-edit{
+	color: #198754;
+}
+
+.action-btn ul li .fa-trash, .action-btn-di ul li .fa-trash{
+	color: #dc3545;
+}
