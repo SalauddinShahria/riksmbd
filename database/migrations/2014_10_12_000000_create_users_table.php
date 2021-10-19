@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->text('image')->nullable();
             $table->string('address')->nullable();
-            $table->integer('is_admin')->default(0)->comment('0 for Super Admin, 1 for Users');
+            $table->string('utype')->default('USR')->comment('ADM for Admin, USR for Users');
             $table->rememberToken();
             $table->timestamps();
         });

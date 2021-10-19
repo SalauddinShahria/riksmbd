@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Frontend Website Routes Are Here
+| Frontend Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -16,12 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\Frontend\PagesController@index')->name('homepage');
 Route::get('/products', 'App\Http\Controllers\Frontend\PagesController@products')->name('allProducts');
 Route::get('/products/details', 'App\Http\Controllers\Frontend\PagesController@details')->name('details');
-Route::get('/login', 'App\Http\Controllers\Frontend\PagesController@login')->name('login');
-Route::get('/registration', 'App\Http\Controllers\Frontend\PagesController@registration')->name('registration');
 
 /*
 |--------------------------------------------------------------------------
-| Backend Admin Routes Are Here
+| Backend Web Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -30,8 +28,18 @@ Route::get('/registration', 'App\Http\Controllers\Frontend\PagesController@regis
 |
 */
 
+require __DIR__.'/auth.php';
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
 Route::group(['prefix' => 'admin'], function(){
-    Route::get('/dashboard', 'App\Http\Controllers\Backend\PagesController@index')->name('dashboard');
+    Route::get('/dashboard', 'App\Http\Controllers\Backend\PagesController@index')->middleware(['auth'])->name('dashboard');
 
     // Brand Route
     Route::group(['prefix' => 'brand'], function (){
@@ -92,5 +100,4 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('/edit/{id}', 'App\Http\Controllers\Backend\SliderController@update')->name('slider.update');
         Route::post('/delete/{id}', 'App\Http\Controllers\Backend\SliderController@destroy')->name('slider.destroy');
     });
-    
 });
