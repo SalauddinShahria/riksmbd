@@ -51,8 +51,8 @@ class SliderController extends Controller
         if ( $request->image )
         {
             // Delete if there is any existing image
-            if ( File::exists( 'Backend/img/brand/' . $brand->image)) {
-                File::delete('Backend/img/brand/' . $brand->image);
+            if ( File::exists( 'Backend/img/slider/' . $slider->image)) {
+                File::delete('Backend/img/slider/' . $slider->image);
             }
 
             $image = $request->file('image');
@@ -118,8 +118,8 @@ class SliderController extends Controller
         {
 
             // Delete if there is any existing image
-            if ( File::exists( 'Backend/img/brand/' . $brand->image)) {
-                File::delete('Backend/img/brand/' . $brand->image);
+            if ( File::exists( 'Backend/img/slider/' . $slider->image)) {
+                File::delete('Backend/img/slider/' . $slider->image);
             }
 
             $image = $request->file('image');
