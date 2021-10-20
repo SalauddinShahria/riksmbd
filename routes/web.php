@@ -14,8 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\Frontend\PagesController@index')->name('homepage');
-Route::get('/products', 'App\Http\Controllers\Frontend\PagesController@products')->name('allProducts');
-Route::get('/products/details', 'App\Http\Controllers\Frontend\PagesController@details')->name('details');
+
+Route::group(['prefix' => 'products'], function(){
+    Route::get('/', 'App\Http\Controllers\Frontend\PagesController@products')->name('allProducts');
+    Route::get('/{slug}', 'App\Http\Controllers\Frontend\PagesController@productshow')->name('product.show');
+    Route::get('/category', 'App\Http\Controllers\Frontend\PagesController@productcategory')->name('product.category');
+    Route::get('/category/{slug}', 'App\Http\Controllers\Frontend\PagesController@categoryshow')->name('category.show');
+});
+
 
 /*
 |--------------------------------------------------------------------------

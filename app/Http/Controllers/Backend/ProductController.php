@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Backend\Product;
-use App\Models\Backend\Brand;
 use App\Models\Backend\Category;
+use App\Models\Backend\Brand;
+use App\Models\Backend\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Image;

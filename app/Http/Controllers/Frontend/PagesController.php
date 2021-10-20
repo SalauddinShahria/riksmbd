@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\Category;
+use App\Models\Backend\Brand;
+use App\Models\Backend\Product;
 use App\Models\Backend\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -19,28 +22,42 @@ class PagesController extends Controller
     public function index()
     {
         $sliders = Slider::orderBy('id', 'asc')->get();
+        $newArrivals = Product::orderBy('id', 'desc')->get();
+        $featuredItem = Product::orderBy('id', 'desc')->where('featured_item', 1)->get();
 
-        return view('frontend.pages.home', compact('sliders'));
+        return view('frontend.pages.home', compact('sliders', 'newArrivals', 'featuredItem'));
     }
 
+    // All Products page.
     public function products()
+    {
+        $products = Product::orderBy('id', 'desc')->paginate(24);
+        return view('frontend.pages.products.products', compact('products'));
+    }
+
+    // Single Product details view
+    public function productshow($slug)
+    {
+        $value = Product::where('slug', $slug)->first();
+
+        if(!is_null($value)){
+            return view('frontend.pages.products.details', compact('value'));
+        }
+        else{
+            return back();
+        }
+    }
+
+    // Category wise Product page.
+    public function productcategory()
     {
         return view('frontend.pages.products.products');
     }
 
-    public function details()
+    // Single Category details view
+    public function categoryshow($slug)
     {
         return view('frontend.pages.products.details');
-    }
-
-    public function login()
-    {
-        return view('frontend.pages.login');
-    }
-
-    public function registration()
-    {
-        return view('frontend.pages.registration');
     }
 
     /**
