@@ -22,6 +22,14 @@ Route::group(['prefix' => 'products'], function(){
     Route::get('/category/{slug}', 'App\Http\Controllers\Frontend\PagesController@categoryshow')->name('category.show');
 });
 
+//Cart Routes
+Route::group(['prefix' => 'cart'], function(){
+    Route::get('/', 'App\Http\Controllers\Frontend\CartController@index')->name('cart.items');
+    Route::post('/store', 'App\Http\Controllers\Frontend\CartController@store')->name('cart.store');
+    Route::post('/update/{id}', 'App\Http\Controllers\Frontend\CartController@update')->name('cart.update');
+    Route::post('/destroy/{id}', 'App\Http\Controllers\Frontend\CartController@destroy')->name('cart.destroy');
+});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -106,4 +114,6 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('/edit/{id}', 'App\Http\Controllers\Backend\SliderController@update')->name('slider.update');
         Route::post('/delete/{id}', 'App\Http\Controllers\Backend\SliderController@destroy')->name('slider.destroy');
     });
+
+
 });

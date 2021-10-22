@@ -2,12 +2,7 @@
 
 
 @section('content')
-        <!-- Session Status -->
-<!--         <x-auth-session-status class="mb-4" :status="session('status')" /> -->
-
-        <!-- Validation Errors -->
-<!--         <x-auth-validation-errors class="mb-4" :errors="$errors" /> -->
-
+       
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -32,6 +27,12 @@
             </div> -->
 
                 <button type="submit" class="btn btn-info btn-block">Sign in</button>
+
+                 <!-- Session Status -->
+                <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                <!-- Validation Errors -->
+                <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
                 @if (Route::has('password.request'))
                 <div class="mg-t-20 tx-center">Forgot your password? <a href="{{ route('password.request') }}" class="tx-info">Click Here</a></div>
