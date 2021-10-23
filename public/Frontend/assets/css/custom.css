@@ -1,3 +1,25 @@
 .cart-item-space{
 	padding: 10px 0px;
 }
+
+.checkout-page, .cart-page{
+	margin-bottom: 30px;
+}
+
+.body-content .checkout-page .checkout-page table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+	padding: 15px;
+}
+
+.geteway-option{
+	border: 2px solid skyblue;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.hidden{
+	display: none;
+}

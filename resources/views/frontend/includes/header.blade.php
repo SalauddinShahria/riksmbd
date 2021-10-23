@@ -5,4 +5,4 @@
 <meta name="author" content="">
 <meta name="keywords" content="MediaCenter, Template, eCommerce">
 <meta name="robots" content="all">
-<title>Flipmart premium HTML5 & CSS3 Template</title>
+<title>RIKSM | E-commerce Website</title>

@@ -17,7 +17,7 @@
 <div class="body-content outer-top-xs">
 	<div class="container">
 		<div class="row ">
-		   <div class="shopping-cart">
+		   <div class="shopping-cart cart-page">
 		      <div class="shopping-cart-table ">
 		        <div class="table-responsive">
 		        	@if ( App\Models\Frontend\Cart::totalItems() > 0 )
@@ -216,7 +216,7 @@
 		               <tr>
 		                  <td>
 		                     <div class="cart-checkout-btn pull-right">
-		                        <a href="{{ route('checkout.page') }}" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</a>
+		                        <a href="{{ route('checkout.page') }}" class="btn btn-primary checkout-btn">PROCCED TO CHECKOUT</a>
 		                     </div>
 		                  </td>
 		               </tr>

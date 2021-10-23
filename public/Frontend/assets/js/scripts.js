@@ -336,3 +336,38 @@ jQuery("[data-toggle='tooltip']").tooltip();
 
 
 })
+
+/*===================================================================================*/
+/*  Payment Option 
+/*===================================================================================*/
+
+$(document).ready(function(){
+    $('#bkash').click(function(){
+        $('.bkash').removeClass('hidden');
+        $('.rocket').addClass('hidden');
+        $('.nagad').addClass('hidden');
+        $('.cashondelivery').addClass('hidden');
+    });
+
+    $('#rocket').click(function(){
+        $('.bkash').addClass('hidden');
+        $('.rocket').removeClass('hidden');
+        $('.nagad').addClass('hidden');
+        $('.cashondelivery').addClass('hidden');
+    });
+
+    $('#nagad').click(function(){
+        $('.bkash').addClass('hidden');
+        $('.rocket').addClass('hidden');
+        $('.nagad').removeClass('hidden');
+        $('.cashondelivery').addClass('hidden');
+    });
+
+    $('#cashondelivery').click(function(){
+        $('.bkash').addClass('hidden');
+        $('.rocket').addClass('hidden');
+        $('.nagad').addClass('hidden');
+        $('.cashondelivery').removeClass('hidden');
+    });
+
+});
