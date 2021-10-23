@@ -10,4 +10,53 @@
 <script type="text/javascript" src="{{ asset('frontend/assets/js/lightbox.min.js') }}"></script> 
 <script src="{{ asset('frontend/assets/js/bootstrap-select.min.js') }}"></script> 
 <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="{{ asset('frontend/assets/js/scripts.js') }}"></script>
+
+<script type="text/javascript">
+	
+	@if ( Session::has('massage') )
+		var type = "{{ Session::get('alert-type', 'info') }}"
+
+		switch(type)
+		{
+			case "info":
+				toastr.info("{{Session::get('massage') }}");
+			break;
+
+			case "success":
+				toastr.success("{{Session::get('massage') }}");
+			break;
+
+			case "warning":
+				toastr.warning("{{Session::get('massage') }}");
+			break;
+
+			case "error":
+				toastr.error("{{Session::get('massage') }}");
+			break;
+		}
+	@endif
+</script>
+
+<script type="text/javascript">
+
+	toastr.options = {
+	  "closeButton": true,
+	  "debug": false,
+	  "newestOnTop": true,
+	  "progressBar": true,
+	  "positionClass": "toast-top-right",
+	  "preventDuplicates": true,
+	  "onclick": null,
+	  "showDuration": "500",
+	  "hideDuration": "2000",
+	  "timeOut": "5000",
+	  "extendedTimeOut": "1000",
+	  "showEasing": "swing",
+	  "hideEasing": "linear",
+	  "showMethod": "fadeIn",
+	  "hideMethod": "fadeOut"
+	}
+
+</script>

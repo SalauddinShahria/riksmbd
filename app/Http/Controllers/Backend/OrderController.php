@@ -3,7 +3,14 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Frontend\Cart;
+use App\Models\Backend\Category;
+use App\Models\Backend\Brand;
+use App\Models\Backend\Product;
+use App\Models\Backend\Order;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Auth;
 
 class OrderController extends Controller
 {
@@ -14,7 +21,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $cartItems = Cart::orderBy('id', 'asc')->where('order_id', NULL)->get();
+        return view('frontend.pages.checkout', compact('cartItems'));
     }
 
     /**
