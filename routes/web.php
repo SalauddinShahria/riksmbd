@@ -32,8 +32,8 @@ Route::group(['prefix' => 'cart'], function(){
 
 //Order Route
 Route::group(['prefix' => 'checkout'], function(){
-    Route::get('/', 'App\Http\Controllers\Backend\OrderController@index')->name('checkout.page');
-    Route::post('/store', 'App\Http\Controllers\Backend\OrderController@store')->name('order.store');
+    Route::get('/', 'App\Http\Controllers\Frontend\OrderController@index')->name('checkout.page');
+    Route::post('/store', 'App\Http\Controllers\Frontend\OrderController@store')->name('order.store');
 });
 
 /*
