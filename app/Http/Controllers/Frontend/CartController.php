@@ -7,7 +7,7 @@ use App\Models\Frontend\Cart;
 use App\Models\Backend\Category;
 use App\Models\Backend\Brand;
 use App\Models\Backend\Product;
-use App\Models\Backend\Order;
+use App\Models\Frontend\Order;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
@@ -59,18 +59,20 @@ class CartController extends Controller
             {
                 $cart->user_id = Auth::id();
             }
+
             $cart->ip_address           = $request->ip();
             $cart->product_id           = $request->product_id;
             $cart->product_quantity     = $request->product_quantity;
-            $cart->save();
 
-            $notification = array(
-                'massage'       => "Item Added Successfully",
-                'alert-type'    => "success"
-            );
+            $cart->save();
         }
 
-        return back()->with($notification);
+        $notification = array(
+            'massage'       => "Item Added Successfully",
+            'alert-type'    => "success",
+        );
+
+        return redirect()->route('homepage')->with($notification);
     }
 
     /**

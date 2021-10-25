@@ -179,6 +179,7 @@
                                 <form action="{{ route('cart.store') }}" method="POST">
                                   @csrf
                                   <input type="hidden" name="product_id" value="{{ $value->id }}">
+                                  <input type="hidden" name="product_quantity" value="1">
                                   <button type="submit" class="btn btn-primary icon"> 
                                     <i class="fa fa-shopping-cart"></i> 
                                   </button>
@@ -258,6 +259,7 @@
                                     <form action="{{ route('cart.store') }}" method="POST">
                                       @csrf
                                       <input type="hidden" name="product_id" value="{{ $value->id }}">
+                                      <input type="hidden" name="product_quantity" value="1">
                                       <button type="submit" class="btn btn-primary icon"> 
                                         <i class="fa fa-shopping-cart"></i> 
                                       </button>

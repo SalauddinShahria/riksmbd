@@ -68,6 +68,7 @@ class OrderController extends Controller
         $order->shipping_address    = $request->address;
         $order->zip_code            = $request->zipcode;
         $order->additional_massage  = $request->additional_massage;
+        $order->product_finalprice  = $request->product_finalprice;
         $order->payment_id          = $request->exampleRadios;
 
         if($order->payment_id == 1){
@@ -79,19 +80,22 @@ class OrderController extends Controller
         else if($order->payment_id == 3){
             $order->transaction_id      = $request->ntransaction_id;
         }
+
         $order->save();
 
-        foreach( Cart::totalCarts() as $cart){
-            $cart->order_id = $order->id;
-        }
 
-        if( Auth::check() ){
-            $cart->user_id = Auth::id();
+        foreach( Cart::totalCarts() as $cart ){
+            $cart->order_id = $order->id;
+
+            if( Auth::check() ){
+                $cart->user_id = Auth::id();
+            }
+            else{
+                $cart->ip_address = $request->ip();
+            }
+
+            $cart->save();
         }
-        else{
-            $cart->ip_address = $request->ip();
-        }
-        $cart->save;
 
         $notification = array(
             'massage'       => "Thank you. Your Order Placed Successfully",
